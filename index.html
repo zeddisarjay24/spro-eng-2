@@ -1,0 +1,1047 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head><script src="assets/js/color-modes.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.122.0">
+    <title>Album example · Bootstrap v5.3</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/">
+
+    
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+<link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+    </style>
+
+    
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+      </symbol>
+    </svg>
+
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+              id="bd-theme"
+              type="button"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+            Light
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            Dark
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    
+<header data-bs-theme="dark">
+  <div class="collapse text-bg-dark" id="navbarHeader">
+    <div class="container">
+      
+    </div>
+  </div>
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container">
+      <a href="#" class="navbar-brand d-flex align-items-center">
+        <strong>Spro</strong>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        Sneeuwwitje
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show ms-5 me-5" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+				<div>
+			<p style="margin:0pt 48.3pt 0pt 42.6pt; text-indent:3.65pt; text-align:center; line-height:136%; font-size:12pt">
+				<strong>Sneeuwwitje</strong>
+			</p>
+			<p style="margin:0pt 48.3pt 0pt 42.6pt; text-indent:3.65pt; text-align:center; line-height:136%; font-size:12pt">
+				<strong>&#xa0;</strong>
+			</p>
+			<p style="margin:0pt 48.3pt 0pt 42.6pt; text-indent:3.65pt; line-height:136%; font-size:12pt">
+				ONCE UPON A TIME – long, long ago – there was a queen who in winter was<span style="letter-spacing:-0.65pt"> </span>sitting<span style="letter-spacing:-0.6pt"> </span>by<span style="letter-spacing:-0.65pt"> </span>the<span style="letter-spacing:-0.65pt"> </span>open<span style="letter-spacing:-0.6pt"> </span>window<span style="letter-spacing:-0.6pt"> </span>embroidering.<span style="letter-spacing:-0.6pt"> </span>'Ouch!'<span style="letter-spacing:-0.65pt"> </span>she<span style="letter-spacing:-0.6pt"> </span>cried<span style="letter-spacing:-0.6pt"> </span>suddenly,<span style="letter-spacing:-0.65pt"> </span><span style="letter-spacing:-0.25pt">for</span>
+			</p>
+			<p style="margin:0.05pt 41.85pt 0pt 7.15pt; line-height:136%; font-size:12pt">
+				she had pricked her finger. A drop of blood fell on the snow under the window. 'I wish,<span style="letter-spacing:-0.45pt"> </span>I<span style="letter-spacing:-0.45pt"> </span>wish,'<span style="letter-spacing:-0.5pt"> </span>said<span style="letter-spacing:-0.4pt"> </span>the<span style="letter-spacing:-0.5pt"> </span>queen,<span style="letter-spacing:-0.4pt"> </span>'that<span style="letter-spacing:-0.5pt"> </span>I<span style="letter-spacing:-0.45pt"> </span>had<span style="letter-spacing:-0.4pt"> </span>a<span style="letter-spacing:-0.5pt"> </span>daughter<span style="letter-spacing:-0.4pt"> </span>with<span style="letter-spacing:-0.45pt"> </span>a<span style="letter-spacing:-0.4pt"> </span>skin<span style="letter-spacing:-0.45pt"> </span>as<span style="letter-spacing:-0.4pt"> </span>white<span style="letter-spacing:-0.45pt"> </span>as<span style="letter-spacing:-0.4pt"> </span>this<span style="letter-spacing:-0.5pt"> </span>snow, with hair as black as the ebony of this window-frame, and with lips as red as this drop<span style="letter-spacing:-0.2pt"> </span>of<span style="letter-spacing:-0.25pt"> </span>blood.'<span style="letter-spacing:-0.2pt"> </span>And<span style="letter-spacing:-0.2pt"> </span>what<span style="letter-spacing:-0.2pt"> </span>do<span style="letter-spacing:-0.2pt"> </span>you<span style="letter-spacing:-0.2pt"> </span>think?<span style="letter-spacing:-0.15pt"> </span>After<span style="letter-spacing:-0.25pt"> </span>a<span style="letter-spacing:-0.25pt"> </span>while<span style="letter-spacing:-0.2pt"> </span>a<span style="letter-spacing:-0.2pt"> </span>daughter<span style="letter-spacing:-0.2pt"> </span>was
+			</p>
+			<p style="margin:0.05pt 49.3pt 0pt 7.15pt; text-indent:0.2pt; line-height:136%; font-size:12pt">
+				born,<span style="letter-spacing:-0.45pt"> </span>and<span style="letter-spacing:-0.4pt"> </span>the<span style="letter-spacing:-0.45pt"> </span>girl<span style="letter-spacing:-0.45pt"> </span>did<span style="letter-spacing:-0.4pt"> </span>indeed<span style="letter-spacing:-0.4pt"> </span>have<span style="letter-spacing:-0.4pt"> </span>hair<span style="letter-spacing:-0.45pt"> </span>as<span style="letter-spacing:-0.4pt"> </span>black<span style="letter-spacing:-0.4pt"> </span>as<span style="letter-spacing:-0.45pt"> </span>ebony,<span style="letter-spacing:-0.4pt"> </span>a<span style="letter-spacing:-0.45pt"> </span>skin<span style="letter-spacing:-0.4pt"> </span>as<span style="letter-spacing:-0.45pt"> </span>white<span style="letter-spacing:-0.4pt"> </span>as<span style="letter-spacing:-0.4pt"> </span>snow, and<span style="letter-spacing:-0.55pt"> </span>lips<span style="letter-spacing:-0.55pt"> </span>as<span style="letter-spacing:-0.55pt"> </span>red<span style="letter-spacing:-0.55pt"> </span>as<span style="letter-spacing:-0.55pt"> </span>blood.<span style="letter-spacing:-0.5pt"> </span>So<span style="letter-spacing:-0.6pt"> </span>the<span style="letter-spacing:-0.6pt"> </span>king<span style="letter-spacing:-0.5pt"> </span>and<span style="letter-spacing:-0.55pt"> </span>queen<span style="letter-spacing:-0.55pt"> </span>were<span style="letter-spacing:-0.55pt"> </span>quite<span style="letter-spacing:-0.55pt"> </span>happy,<span style="letter-spacing:-0.5pt"> </span>you<span style="letter-spacing:-0.55pt"> </span>understand, and they called their daughter Snow<span style="letter-spacing:-0.75pt"> </span>White.
+			</p>
+			<p style="margin-top:0pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<p style="margin-top:0.25pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<p style="margin:0pt 58.35pt 0pt 7.3pt; text-indent:0.1pt; line-height:136%; font-size:12pt">
+				But<span style="letter-spacing:-0.5pt"> </span>one<span style="letter-spacing:-0.45pt"> </span>day<span style="letter-spacing:-0.45pt"> </span>the<span style="letter-spacing:-0.5pt"> </span>queen<span style="letter-spacing:-0.45pt"> </span>became<span style="letter-spacing:-0.45pt"> </span>ill,<span style="letter-spacing:-0.45pt"> </span>even<span style="letter-spacing:-0.45pt"> </span>so<span style="letter-spacing:-0.45pt"> </span>badly<span style="letter-spacing:-0.45pt"> </span>that<span style="letter-spacing:-0.5pt"> </span>she<span style="letter-spacing:-0.45pt"> </span>died.<span style="letter-spacing:-0.45pt"> </span>The<span style="letter-spacing:-0.5pt"> </span>king,<span style="letter-spacing:-0.45pt"> </span>who<span style="letter-spacing:-0.4pt"> </span><span style="letter-spacing:-0.25pt">did </span>not like it, so alone, after a while married<span style="letter-spacing:-1.3pt"> </span>again.
+			</p>
+			<p style="margin:0.05pt 41.3pt 0pt 7.6pt; text-indent:-0.3pt; line-height:136%; font-size:12pt">
+				His<span style="letter-spacing:-0.55pt"> </span>new<span style="letter-spacing:-0.5pt"> </span>wife<span style="letter-spacing:-0.5pt"> </span>was<span style="letter-spacing:-0.5pt"> </span>very<span style="letter-spacing:-0.55pt"> </span>beautiful,<span style="letter-spacing:-0.5pt"> </span>but<span style="letter-spacing:-0.55pt"> </span>what<span style="letter-spacing:-0.5pt"> </span>the<span style="letter-spacing:-0.55pt"> </span>king<span style="letter-spacing:-0.55pt"> </span>did<span style="letter-spacing:-0.5pt"> </span>not<span style="letter-spacing:-0.55pt"> </span>know<span style="letter-spacing:-0.5pt"> </span>was<span style="letter-spacing:-0.5pt"> </span>that<span style="letter-spacing:-0.55pt"> </span>she<span style="letter-spacing:-0.5pt"> </span>thought of nothing else all day long but being beautiful. In her room she even had a magic mirror for that<span style="letter-spacing:-0.35pt"> </span>purpose.
+			</p>
+			<p style="margin-top:0.05pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<p style="margin-top:0.05pt; margin-left:7.4pt; margin-bottom:0pt; font-size:12pt">
+				Every morning she would stand in front of this mirror and ask:
+			</p>
+			<p style="margin-top:0.35pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<h5 style="margin-top:4pt; margin-right:297.6pt; margin-bottom:2pt; text-indent:0.1pt; page-break-inside:avoid; page-break-after:avoid; line-height:109%; widows:2; orphans:2; font-size:12pt">
+				<span style="font-family:Aptos; font-weight:normal">Mirror, mirror on the wall, who is the fairest of them all?</span>
+			</h5>
+			<p style="margin-top:0.15pt; margin-bottom:0pt; font-size:12pt">
+				<em>&#xa0;</em>
+			</p>
+			<p style="margin-top:0.05pt; margin-left:7.4pt; margin-bottom:0pt; font-size:12pt">
+				And because it was a magic mirror, he could talk, and he always answered:
+			</p>
+			<p style="margin-top:0.5pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<p style="margin-top:0pt; margin-left:7.35pt; margin-bottom:0pt; font-size:12pt">
+				You<span style="letter-spacing:-0.55pt"> </span><em>are</em><em><span style="letter-spacing:-0.55pt"> </span></em><em>the</em><em><span style="letter-spacing:-0.55pt"> </span></em><em>most</em><em><span style="letter-spacing:-0.55pt"> </span></em><em>beautiful</em><em><span style="letter-spacing:-0.55pt"> </span></em><em>in</em><em><span style="letter-spacing:-0.55pt"> </span></em><em>the</em><em><span style="letter-spacing:-0.55pt"> </span></em><em>land</em><em><span style="letter-spacing:-0.55pt"> </span></em><em>.</em>
+			</p>
+			<p style="margin-top:0pt; margin-bottom:0pt; font-size:12pt">
+				<em>&#xa0;</em>
+			</p>
+			<p style="margin-top:0.5pt; margin-bottom:0pt; font-size:12pt">
+				<em>&#xa0;</em>
+			</p>
+			<p style="margin:0pt 68.3pt 0pt 7.2pt; text-indent:0.15pt; line-height:139%; font-size:12pt">
+				The<span style="letter-spacing:-0.55pt"> </span>queen<span style="letter-spacing:-0.45pt"> </span>then<span style="letter-spacing:-0.5pt"> </span>sat<span style="letter-spacing:-0.5pt"> </span>down<span style="letter-spacing:-0.5pt"> </span>contentedly<span style="letter-spacing:-0.45pt"> </span>on<span style="letter-spacing:-0.45pt"> </span>a<span style="letter-spacing:-0.5pt"> </span>chair<span style="letter-spacing:-0.45pt"> </span>in<span style="letter-spacing:-0.5pt"> </span>front<span style="letter-spacing:-0.5pt"> </span>of<span style="letter-spacing:-0.5pt"> </span>her<span style="letter-spacing:-0.5pt"> </span>dressing<span style="letter-spacing:-0.45pt"> </span>table<span style="letter-spacing:-0.5pt"> </span><span style="letter-spacing:-0.3pt">to</span><span style="letter-spacing:-0.3pt">&#xa0; </span>make herself even more<span style="letter-spacing:-0.4pt"> </span>beautiful.
+			</p>
+			<p style="margin-top:0pt; margin-left:7.4pt; margin-bottom:0pt; line-height:12.4pt">
+				<span style="font-size:12pt">But one day things went differently. The queen stood in front of the mirror again and asked:</span>
+			</p>
+			<p style="margin-top:0pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<p style="margin-top:0pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<h5 style="margin-top:10.45pt; margin-right:297.6pt; margin-bottom:2pt; text-indent:0.1pt; page-break-inside:avoid; page-break-after:avoid; line-height:109%; widows:2; orphans:2; font-size:12pt">
+				<span style="font-family:Aptos; font-weight:normal">Mirror, mirror on the wall, who is the fairest of them all?</span>
+			</h5>
+		</div>
+		<br style="page-break-before:always; clear:both; mso-break-type:section-break" >
+		<div>
+			<p style="margin-top:3.7pt; margin-left:7.4pt; margin-bottom:0pt; font-size:12pt">
+				<span style="height:0pt; margin-top:-3.7pt; display:block; position:absolute; z-index:-3"><img src="1730291949_snowwhite/1730291949_snowwhite-1.png" width="816" height="1056" alt="" style="margin-top:-69pt; margin-left:-77.4pt; position:absolute" ></span>And do you know what she heard now?
+			</p>
+			<p style="margin-top:0.05pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<p style="margin-top:4.7pt; margin-left:7.85pt; margin-bottom:0pt; font-size:12pt">
+				<em>Oh, Queen, you are the most beautiful in this room,</em>
+			</p>
+			<p style="margin-top:5.55pt; margin-left:7.35pt; margin-bottom:0pt; font-size:12pt">
+				<em>but Snow White is a thousand times more beautiful than you.</em>
+			</p>
+			<p style="margin-top:0.1pt; margin-bottom:0pt; font-size:12pt">
+				<em>&#xa0;</em>
+			</p>
+			<p style="margin:4.6pt 48.3pt 0pt 7.25pt; text-indent:0.15pt; line-height:136%; font-size:12pt">
+				The queen could not believe her ears. She pushed aside the curtain and saw Snow White playing, and knew at once that the mirror was right. 'No one must be more beautiful than I,' the queen growled. And then she thought of something very evil.
+			</p>
+			<p style="margin-top:0.15pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<p style="margin:4.65pt 62.9pt 0pt 7.25pt; text-indent:0.05pt; line-height:136%; font-size:12pt">
+				She called the palace hunter to her and gave him a large knife. 'Tomorrow you will take Snow White into the forest,' she said, 'and there you will stab her to death with this knife.' Then she gave him a small box.
+			</p>
+			<p style="margin-top:0.05pt; margin-left:7.55pt; margin-bottom:0pt; font-size:12pt">
+				"And to make sure she's dead, I want this box back with Snow White's heart in it."
+			</p>
+			<p style="margin-top:0pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<p style="margin-top:0pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<p style="margin:7.9pt 42.95pt 0pt 7.05pt; text-indent:0.35pt; line-height:136%; font-size:12pt">
+				The next day the huntsman went with Snow White into the forest. But when he took <span style="letter-spacing:-0.25pt">out </span>his knife, he felt sorry for her. 'Go away, Snow White,' he said, 'as far away as possible, because the queen wants me to kill you.' Frightened, Snow White ran as fast as she could, deep into the forest. And do you know what the huntsman did? He killed a wild boar and put its heart in the queen's box.
+			</p>
+			<p style="margin-top:0pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<p style="margin-top:0.25pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<p style="margin:0pt 45.7pt 0pt 7.45pt; text-indent:0.3pt; line-height:136%; font-size:12pt">
+				Meanwhile, Snow White kept running. She ran over seven mountains until, exhausted, she came to a tiny house. The front door was not locked.
+			</p>
+			<p style="margin-top:0.05pt; margin-left:7.6pt; margin-bottom:0pt; font-size:12pt">
+				Snow White had to duck when she went inside.
+			</p>
+			<p style="margin:4.75pt 69.75pt 0pt 7.35pt; line-height:136%; font-size:12pt">
+				There must be seven children living here, she thought. Look, there are seven little chairs, seven little plates, seven little glasses and seven little spoons. She
+			</p>
+			<p style="margin:0.05pt 45.7pt 0pt 5.9pt; text-indent:1.35pt; line-height:136%; font-size:12pt">
+				walked up a small narrow staircase and at the top she saw seven little beds in a row. Suddenly she felt how tired she was. (Yes, what do you expect, when you have run so hard over seven mountains!) And before she knew it she was stretched out across three beds and fell into a deep sleep.
+			</p>
+			<p style="margin-top:0.1pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<p style="margin-top:0pt; margin-left:7.4pt; margin-bottom:0pt; font-size:12pt">
+				Because of that she didn't hear the residents coming home. They weren't seven
+			</p>
+			<p style="margin:4.75pt 31.5pt 0pt 7.35pt; text-indent:-0.15pt; line-height:272%; font-size:12pt">
+				children but seven dwarfs, and they saw right away that someone had been in the house. They crept upstairs and discovered the sleeping Snow White.
+			</p>
+		</div>
+		<br style="page-break-before:always; clear:both; mso-break-type:section-break" >
+		<div>
+			<p style="margin-top:3.7pt; margin-left:7.55pt; margin-bottom:0pt; font-size:12pt">
+				<span style="height:0pt; margin-top:-3.7pt; display:block; position:absolute; z-index:-2"><img src="1730291949_snowwhite/1730291949_snowwhite-1.png" width="816" height="1056" alt="" style="margin-top:-73pt; margin-left:-77.55pt; position:absolute" ></span>"Oh, how sweet she is," said one dwarf. "And how beautiful," said another.
+			</p>
+			<p style="margin-top:4.8pt; margin-left:7.55pt; margin-bottom:0pt; font-size:12pt">
+				"Shhh, don't wake them!" said a third. And they quietly crept back down the stairs.
+			</p>
+			<p style="margin-top:0pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<p style="margin-top:0pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<p style="margin-top:0.25pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<p style="margin:4.75pt 58.35pt 0pt 7.15pt; text-indent:0.2pt; line-height:136%; font-size:12pt">
+				After a long time Snow White woke up and when she found the seven dwarfs downstairs, she told them what had happened to her. The dwarfs had heard of the evil queen. 'They say she can do magic,' they whispered and crept closer together.
+			</p>
+			<p style="margin-top:0.05pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<p style="margin:4.75pt 35.65pt 0pt 7.15pt; text-indent:0.2pt; text-align:justify; line-height:133%; font-size:12pt">
+				The next morning the dwarves had to go to the silver mine to work as usual. At the door they said to Snow White: 'Be careful, don't let anyone in. You never know!' They waved to her and disappeared behind the mountains.
+			</p>
+			<p style="margin-top:0pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<p style="margin-top:0pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<p style="margin-top:0.25pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<p style="margin-top:0pt; margin-left:7.75pt; margin-bottom:0pt; font-size:12pt">
+				Meanwhile, in the palace, the hunter had given the box to the evil<span style="letter-spacing:2.55pt"> </span>queen.
+			</p>
+			<p style="margin-top:0pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<p style="margin:10.5pt 75.95pt 0pt 7.45pt; text-indent:0.1pt; line-height:157%; font-size:12pt">
+				"Now I'm the most beautiful again," she said with satisfaction and quickly went to stand in front of the magic mirror.
+			</p>
+			<p style="margin-top:0.4pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<h5 style="margin-top:4pt; margin-right:297.6pt; margin-bottom:2pt; text-indent:0.1pt; page-break-inside:avoid; page-break-after:avoid; line-height:109%; widows:2; orphans:2; font-size:12pt">
+				<span style="font-family:Aptos; font-weight:normal">Mirror, mirror on the wall, who is the fairest of them all?</span>
+			</h5>
+			<p style="margin-top:0.15pt; margin-bottom:0pt; font-size:12pt">
+				<em>&#xa0;</em>
+			</p>
+			<p style="margin-top:0pt; margin-left:7.4pt; margin-bottom:0pt; font-size:12pt">
+				The mirror replied:
+			</p>
+			<p style="margin-top:0.05pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<p style="margin-top:4.75pt; margin-left:7.85pt; margin-bottom:0pt; font-size:12pt">
+				<em>Oh, Queen, you are the most beautiful in this room,</em>
+			</p>
+			<p style="margin-top:5.55pt; margin-left:7.35pt; margin-bottom:0pt; font-size:12pt">
+				<em>but Snow White is a thousand times more beautiful than</em><em><span style="letter-spacing:1.15pt"> </span></em><em>you.</em>
+			</p>
+			<p style="margin-top:0.05pt; margin-bottom:0pt; font-size:12pt">
+				<em>&#xa0;</em>
+			</p>
+			<p style="margin-top:0pt; margin-left:7.4pt; margin-bottom:0pt; font-size:12pt">
+				The queen showed the box to the mirror. 'Ha! That can't<span style="letter-spacing:2.95pt"> </span>be!
+			</p>
+			<p style="margin:4.8pt 241.45pt 0pt 7.4pt; text-indent:0.15pt; line-height:136%; font-size:12pt">
+				Snow White is dead. Here is her heart!' But the mirror answered:
+			</p>
+			<p style="margin-top:0.1pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<h5 style="margin:4.75pt 241.45pt 2pt 7.2pt; text-indent:0.65pt; page-break-inside:avoid; page-break-after:avoid; line-height:136%; widows:2; orphans:2; font-size:12pt">
+				<span style="font-family:Aptos; font-weight:normal">Oh, Queen, the fairest in this room are you, but Snow White beyond the Seven Mountains in the house of the</span>
+			</h5>
+			<p style="margin-top:0pt; margin-left:7.2pt; margin-bottom:0pt; line-height:10.7pt">
+				<em><span style="font-size:12pt; ">Seven Dwarfs is a thousand times fairer than you!</span></em>
+			</p>
+			<p style="margin-top:0.35pt; margin-bottom:0pt; font-size:12pt">
+				<em>&#xa0;</em>
+			</p>
+			<p style="margin-top:0pt; margin-left:7.4pt; margin-bottom:0pt; font-size:12pt">
+				The queen understood that the huntsman had fooled her. She trembled with rage.
+			</p>
+		</div>
+		<br style="page-break-before:always; clear:both; mso-break-type:section-break" >
+		<div>
+			<h3 style="margin-top:3pt; margin-left:7.55pt; margin-bottom:4pt; page-break-inside:avoid; page-break-after:avoid; line-height:108%; widows:2; orphans:2; font-size:12pt">
+				<span style="height:0pt; margin-top:-3pt; display:block; position:absolute; z-index:-1"><img src="1730291949_snowwhite/1730291949_snowwhite-1.png" width="816" height="1056" alt="" style="margin-top:-68pt; margin-left:-77.55pt; position:absolute" ></span><span style="font-family:Aptos; font-weight:normal">“Then I'll kill her myself,” she said, gritting her teeth.</span>
+			</h3>
+			<p style="margin-top:0.5pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<p style="margin:4.55pt 48pt 0pt 7pt; text-indent:0.3pt; line-height:120%; font-size:12pt">
+				She went down six flights of stairs to the cellar and there conjured up a poisoned apple. It was red on one side and green on the other. She changed<span style="letter-spacing:-0.25pt"> </span>herself<span style="letter-spacing:-0.25pt"> </span>into<span style="letter-spacing:-0.25pt"> </span>an<span style="letter-spacing:-0.25pt"> </span>old<span style="letter-spacing:-0.25pt"> </span>woman<span style="letter-spacing:-0.25pt"> </span>and<span style="letter-spacing:-0.2pt"> </span>set<span style="letter-spacing:-0.25pt"> </span>off,<span style="letter-spacing:-0.25pt"> </span>over<span style="letter-spacing:-0.25pt"> </span>the<span style="letter-spacing:-0.25pt"> </span>seven<span style="letter-spacing:-0.25pt"> </span>mountains,<span style="letter-spacing:-0.2pt"> </span>to the house of the seven<span style="letter-spacing:-0.35pt"> </span>dwarves.
+			</p>
+			<p style="margin:0.25pt 35.5pt 0pt 7.45pt; text-indent:0.1pt; line-height:120%; font-size:12pt">
+				"I'll get her!" she growled again and again. And in her basket, among the other apples, lay the poisoned apple... Snow White, who was left alone in
+			</p>
+			<p style="margin:0.1pt 55.3pt 0pt 7pt; text-indent:0.4pt; line-height:120%; font-size:12pt">
+				the cottage of the seven dwarfs, was just about to put a pan of soup on the fire, when there was a tap at the window. It was an old woman, who was carrying a basket of apples.
+			</p>
+			<p style="margin-top:0.25pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<p style="margin:0pt 66.95pt 0pt 7.05pt; text-indent:0.5pt; line-height:120%; font-size:12pt">
+				'May I rest here for a while? I am so tired,' she panted. Snow White hesitated. She opened the window and said, 'I am sorry, old woman, the dwarves will not let anyone in. But I can give you a glass of water.' When the witch had
+			</p>
+			<p style="margin:0.25pt 56.6pt 0pt 7.25pt; line-height:120%; font-size:12pt">
+				finished the glass, she said, 'Since you have been so kind to me, I will give you an apple. Look, a very beautiful red-green apple. Take a nice
+			</p>
+			<p style="margin-top:0.1pt; margin-left:7.35pt; margin-bottom:0pt; font-size:12pt">
+				bite!' Snow White took a bite and… fell dead on the ground.
+			</p>
+			<p style="margin-top:0pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<p style="margin-top:0pt; margin-bottom:0pt; text-indent:36pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<p style="margin-top:0pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<p style="margin:4.7pt 58.35pt 0pt 7.55pt; text-indent:-0.05pt; line-height:110%; font-size:12pt">
+				'Hahahaha,' laughed the wicked queen (for that is what it was of course!), 'hahahaha! Now I am the fairest of them all again!' And she hurried back to her
+			</p>
+			<p style="margin-top:6.9pt; margin-left:7.45pt; margin-bottom:0pt; font-size:12pt">
+				palace, on the other side of the seven mountains.
+			</p>
+			<h3 style="margin-top:3.4pt; margin-right:43.25pt; margin-bottom:4pt; text-indent:0.05pt; page-break-inside:avoid; page-break-after:avoid; line-height:120%; widows:2; orphans:2; font-size:12pt">
+				<span style="font-family:Aptos; font-weight:normal">When the dwarfs came home they found Snow White lying dead on the floor. The dwarfs were deeply and deeply sad, so sad that they could not say goodbye to her. They made a beautiful glass coffin for her and put her in it, so that they could always look at her.</span>
+			</h3>
+			<p style="margin-top:0.3pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<p style="margin:0pt 43.7pt 0pt 7.45pt; text-indent:-0.05pt; line-height:120%; font-size:12pt">
+				A few days later a prince happened to be riding through the forest on his horse and saw the glass coffin. He thought Snow White was so beautiful that he lifted the glass lid and gave her a kiss.
+			</p>
+			<p style="margin-top:0.2pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<p style="margin:0.05pt 22.15pt 0pt 7.15pt; text-indent:0.2pt; line-height:120%; font-size:12pt">
+				Apparently Snow White was not completely dead, because she started coughing in fright and the poisoned piece of apple shot out of her throat.
+			</p>
+			<p style="margin-top:0.1pt; margin-left:6.85pt; margin-bottom:0pt; font-size:12pt">
+				She sat up in surprise and asked, "Where am I? What happened?"
+			</p>
+		</div>
+		<br style="page-break-before:always; clear:both; mso-break-type:section-break" >
+		<div>
+			<p style="margin-top:3.4pt; margin-left:7.55pt; margin-bottom:0pt; font-size:12pt">
+				“Hurray!” shouted the dwarves.
+			</p>
+			<p style="margin:5.95pt 48.3pt 0pt 7.15pt; text-indent:-0.3pt; line-height:149%; font-size:12pt">
+				How happy they were that Snow White was alive again! The prince was too. He took Snow White on his horse and they rode off together to his palace.
+			</p>
+			<p style="margin-top:0pt; margin-left:7.4pt; margin-bottom:0pt; font-size:12pt">
+				There they got married and lived happily ever after.
+			</p>
+			<p style="margin-top:0.05pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+			<p style="margin:4.8pt 68.3pt 0pt 7.35pt; line-height:149%; font-size:12pt">
+				And the evil queen? She heard from the mirror that Snow White was still the most beautiful. She found that so terrible that she dropped dead.
+			</p>
+			<p style="margin-top:0pt; margin-left:5.75pt; margin-bottom:0pt; font-size:12pt">
+				<span style="height:0pt; display:block; position:absolute; z-index:0"></span>Yes, really, she fell over in sheer rage, just like that, right there in front of the mirror.
+			</p>
+			<p style="margin-top:0pt; margin-bottom:0pt; font-size:12pt">
+				&#xa0;
+			</p>
+		</div>
+	<p style="bottom: 10px; right: 10px; position: absolute;"><a href="https://wordtohtml.net" target="_blank" style="font-size:11px; color: #d0d0d0">Converted to HTML with WordToHTML.net</a></p>
+
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Kleine Dumpje
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse ms-5 me-5" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+		<p>A long, long time ago, there lived a boy so small and thin that everyone called him Little Thumb. He had six older brothers, who were also just as skinny as Little Thumb, because their parents were so poor that they couldn&rsquo;t afford enough food for them. The father was a woodcutter, but no one bought his wood since everyone in the area was just as poor.</p>
+		<p>One night, Little Thumb&rsquo;s stomach growled so loudly that he couldn&rsquo;t sleep. He snuck downstairs to see if he could find a few crumbs of bread. In the kitchen, he overheard his father sighing, &ldquo;Wife, we&rsquo;re completely out of food. There&rsquo;s no other choice. Tomorrow, I&rsquo;ll take the children to the forest and leave them there.&rdquo; Little Thumb couldn&rsquo;t believe his ears&mdash;who would do something so terrible? But that&rsquo;s how things go in fairy tales.</p>
+		<p>Little though he was, he was also very clever, and he quickly came up with a plan. He snuck outside and filled his pockets with pebbles. The next day, his father said, &ldquo;We&rsquo;re all going to the forest.&rdquo; So, off they went, one after the other in a long line, with the father leading and Little Thumb at the very end. Every five steps, he secretly dropped a pebble. When they reached a stream, the father stopped. &ldquo;I&rsquo;m going to cut wood on the other side. You stay here and play, and I&rsquo;ll come back to get you later.&rdquo;When the sun had set and the father still hadn&rsquo;t returned, the brothers began to cry. Little Thumb said, &ldquo;Don&rsquo;t worry, I know the way home.&rdquo; And he did, for he simply followed the pebbles he had dropped along the way.The father and mother were very happy to see them because that day the father had managed to sell some wood, and there was bread in the house once again.</p>
+		<p>But after a while, things went wrong again. No one bought wood from the woodcutter, and once again, they all sat around the table with empty plates. So, the next day, the father took the children to the forest once more, and again, Little Thumb had filled his pockets with pebbles, which he dropped along the way. Once again, he found his way home in the evening. By chance, the father had earned a little money that day, and everyone was happy again.</p>
+		<p>But even this happiness didn&rsquo;t last long. One day, there was only half a loaf of bread in the house, which was far too little for nine people. Little Thumb knew what he had to do, but when he tried to gather pebbles from the yard that night, he discovered to his dismay that the door was locked! The next day, the father divided the half loaf into seven pieces, one for each child, and led his sons into the forest once again. This time, instead of pebbles, Little Thumb dropped breadcrumbs every five steps. When it got dark, he said, &ldquo;I don&rsquo;t think father is coming back. Let&rsquo;s head home; the breadcrumbs will show us the way.&rdquo; But guess what? Birds and mice had eaten the breadcrumbs. There they stood! How would they find their way home?</p>
+		<p>&ldquo;We can&rsquo;t stay here all night,&rdquo; said Little Thumb. &ldquo;Let&rsquo;s try to find our own way back.&rdquo; But they got lost and wandered deeper into the forest, farther and farther from home. The brothers grew tired and started to blame Little Thumb, but he kept his spirits up. He climbed a tall tree, hoping to spot their house. Though he couldn&rsquo;t see it, he did see a light in the distance. Maybe they could find something to eat there because they were all starving! They reached a large, tall house, much bigger than their own. Little Thumb knocked on the door. A kind woman opened it. &ldquo;Ma&rsquo;am, do you have some food for us and perhaps a place to sleep?&rdquo; Little Thumb asked politely. &ldquo;Oh, poor children!&rdquo; said the woman, shocked. &ldquo;Don&rsquo;t you know that a giant lives here, one who loves human flesh?&rdquo; She thought for a moment. &ldquo;I can&rsquo;t send you back into the forest, it&rsquo;s completely dark now. You know what? There&rsquo;s an extra bed in the room next to where his seven daughters sleep. You can spend the night there. But you&rsquo;ll have to be very quiet because the giant must not know you&rsquo;re here.&rdquo; She gave them each a bowl of soup. &ldquo;Eat quickly because the giant could return any moment!&rdquo; Hardly had she said this when the house began to shake. The woman jumped up and whispered urgently, &ldquo;The giant is coming back with his seven-league boots. With those magical boots, he can take strides as long as a football field. Quickly, upstairs!&rdquo; Tripping over each other, Little Thumb and his brothers hurried up the steep stairs, following the woman. She led them into a room. &ldquo;Get in bed, and remember: not a peep! His daughters are sleeping next door, and the giant mustn&rsquo;t hear you.&rdquo; She turned and went downstairs to let the giant in. Little Thumb and his brothers climbed into the large bed and held their breath. They heard the giant come in&mdash;or rather, they felt it, as the whole house shook. &ldquo;What do I smell?&rdquo; they heard him say. &ldquo;Do I smell human flesh?&rdquo; &ldquo;No, no,&rdquo; the woman replied nervously, &ldquo;you&rsquo;re just imagining things.&rdquo;</p>
+		<p>Little Thumb quietly got out of bed and snuck over to the room where the giant&rsquo;s daughters were sleeping. They lay in one big bed, each wearing a small crown. Gently, Little Thumb took their crowns and crept back to his brothers. &ldquo;Put these crowns on!&rdquo; he whispered, and before hiding under the blanket, he put one on his own head.</p>
+		<p>A bit later, the giant stomped up the stairs. &ldquo;And yet I smell human flesh,&rdquo; he muttered as he entered the room where Little Thumb and his brothers lay. In the dark, he felt the crowns and assumed they were his daughters. Still not completely sure, he went into the next room. &ldquo;See? I did smell human flesh,&rdquo; he said, feeling a head of hair and then, one by one, ate all his seven daughters, clothes and all, so quickly that they didn&rsquo;t even wake up! The giant flopped onto his bed, and soon he was snoring so loudly it sounded like a huge tree being felled.</p>
+		<p>Little Thumb and his brothers quietly got out of bed and tiptoed down the stairs. In a corner of the kitchen lay the seven-league boots. Without hesitation, Little Thumb put them on, and, wonder of wonders, they fit perfectly! After all, they were magical boots. He grabbed his oldest brother&rsquo;s hand, who held the next brother&rsquo;s, and so on, and they strode in a line through the forest. When the sun rose, Little Thumb saw a house in the distance. &ldquo;Hooray!&rdquo; he cried. &ldquo;Boys, we&rsquo;re home!&rdquo;</p>
+		<p>Their father and mother were overjoyed to see their children again, and to find that Little Thumb had cleverly brought back the seven golden crowns. They sold them, and from then on, they always had enough money for food. And never again did the father have to leave his children in the forest. Yes, that&rsquo;s how things go in fairy tales.</p>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        De nieuwe kleren van de keizer
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse ms-5 me-5" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+		<p>A long, long time ago, there was an emperor who was incredibly vain. Now, everyone is a little vain, but this emperor loved looking in the mirror way too much&mdash;and, on top of that, he was quite foolish. Just listen.</p>
+		<p>The emperor in this story did nothing but try on new clothes all day. In fact, he thought about nothing but clothes. He had twelve huge closets, all completely full, and mirrors were everywhere in his palace. Each hallway had at least three, the dining room had eight, and the grand salon had ten&mdash;let alone the bedroom. There was a giant mirror fastened to the ceiling so that he could look at himself even while lying in bed. As you can imagine, he spent a lot of time lying on his back.</p>
+		<p>Everyone in the land talked about how vain the emperor was. Two strangers who happened to be traveling through the country and were out of money heard about this. They came up with a clever plan to make a lot of money easily.</p>
+		<p>They went to the palace and told the emperor they could make clothes that were not only beautiful but also very special. The emperor sat up straight immediately&mdash;he had to have those clothes! &ldquo;How so, special?&rdquo; he asked. &ldquo;Only smart people can see the clothes,&rdquo; explained the men. &ldquo;For foolish people, they&rsquo;re invisible.&rdquo;</p>
+		<p>These clothes are not only beautiful and special, thought the emperor, but also very useful because now I&rsquo;ll know who is foolish and who isn&rsquo;t. And you can see that the emperor himself wasn&rsquo;t very bright because who would believe such a thing? The emperor ordered the two liars to start immediately, as in two weeks, there would be a grand parade through the city, and he wanted to lead it in his new clothes. He showed them to a large room where they could set up their looms. The two men asked the emperor for heaps of money to buy the finest, most luxurious, and therefore the most expensive threads. But they kept the money for themselves. They didn&rsquo;t buy anything. Day after day, they sat at the looms, pretending to string threads, pretending to weave, pretending to pull the finest fabrics off the looms, and pretending to make the most beautiful clothes from these fabrics. But there were no fabrics, there were no clothes&mdash;there was nothing at all.</p>
+		<p>Of course, the emperor was very curious about how the clothes looked. He sent his chief minister to check. One of the men showed him in and pointed to the empty looms and the bare tables. &ldquo;Just look,&rdquo; he said, &ldquo;do you see how beautifully the fabric shines? And do you see how splendid the clothes on the table turned out?&rdquo;</p>
+		<p>The chief minister looked at the empty looms and the empty tables and thought, Oh dear, I must be foolish because I don&rsquo;t see any clothes. But he didn&rsquo;t say this out loud because he didn&rsquo;t want everyone to know he was foolish. So he said, &ldquo;Yes, yes, yes! They&rsquo;re truly magnificent!&rdquo;</p>
+		<p>And when the emperor later asked how the clothes were, the chief minister again said they were magnificent. &ldquo;Aha!&rdquo; the emperor thought to himself. &ldquo;This minister isn&rsquo;t foolish, for he can see the clothes.&rdquo;</p>
+		<p>Everyone in the land heard about the two marvelous tailors, and everyone talked about the emperor&rsquo;s new clothes. The emperor grew more and more curious, but he had to wait until the day of the big parade. Only then would he finally be allowed to admire his new clothes.</p>
+		<p>With all his ministers in a line behind him, he went to the room of the two fraudsters. Of course, the emperor couldn&rsquo;t see the clothes. Oh no, he thought, am I foolish too? And naturally, he didn&rsquo;t want anyone to know that either. &ldquo;Well, well, well,&rdquo; he said, &ldquo;they are truly stunning!&rdquo; &ldquo;Yes, yes, yes,&rdquo; said all the ministers, who also saw nothing. &ldquo;They are truly stunning!&rdquo;</p>
+		<p>The emperor then undressed completely to put on his new clothes. The two men pretended to dress him. First, they pretended to put on underwear, then a shirt, pants, a jacket, and the rest of the ensemble. Then they took a step back and looked at the naked emperor from head to toe. &ldquo;Yes,&rdquo; they said, &ldquo;the clothes truly suit you perfectly!&rdquo; &ldquo;Yes, yes, yes,&rdquo; all the ministers chimed in, &ldquo;the clothes truly suit you perfectly!&rdquo;</p>
+		<p>Proudly, the emperor walked outside and, stark naked, paraded confidently at the head of the procession. The streets were packed with people, all eager to see the emperor&rsquo;s new clothes, and everyone shouted, &ldquo;Oh, oh, oh, what magnificent clothes!&rdquo; Because no one wanted to appear foolish, of course.</p>
+		<p>But suddenly, a little boy called out, &ldquo;But he isn&rsquo;t wearing any clothes at all!&rdquo;</p>
+		<p>Startled, the people around the boy looked at him. Then they looked at each other again. And you know what happens when one person dares to tell the truth? Suddenly, others dare to as well. So a moment later, everyone was shouting, &ldquo;The emperor is walking around naked! The emperor is walking around naked!&rdquo;</p>
+		<p>Clearly, I&rsquo;m not the only foolish one, thought the emperor. He straightened his back and marched even more proudly through the crowd. Completely naked! Can you imagine that?</p>
+
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+        De wolf en de zeven geitjes
+      </button>
+    </h2>
+    <div id="collapseFour" class="accordion-collapse collapse ms-5 me-5" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+		<p>A long, long time ago, there was a mother goat who lived with her seven little kids in a cottage at the edge of the forest. Very often, three times a week even, Mother Goat had to go to the village to buy groceries, because seven little goats sure eat a lot! And every time before leaving, she would say, &ldquo;Listen well, children, be careful of the wolf! I don&rsquo;t need to tell you what wolves do to little goats. So lock the door tightly when I&rsquo;m gone. You must only open it for me and no one else. Do you understand?&rdquo; She was so careful! And she was right, just listen...</p>
+		<p>One day, Mother Goat had to go shopping again. This time, someone was hiding behind the big tree next to the cottage, watching her until she disappeared around the bend. That &ldquo;someone&rdquo; crept up to the cottage, sniffed around the walls and the windows. You guessed it&mdash;it was the wolf! He knocked on the door and said in his sweetest voice, &ldquo;Open up, my dear little goats, it&rsquo;s your mother.&rdquo; Inside, the kids huddled together in fear and replied, &ldquo;No, no, you don&rsquo;t sound like our mother. Our mother doesn&rsquo;t have such a gruff voice!&rdquo; They squeezed closer together and shivered with fright. Oh, that&rsquo;s right, thought the wolf, I need to speak in a higher voice. He walked back to the big tree, waited a moment, then returned to the door.With a high-pitched voice, he said, &ldquo;Dear little goats, open up, it&rsquo;s your mother.&rdquo; It did sound like their mother, but just to be sure, the kids called out, &ldquo;Then show us your paw under the door!&rdquo; They gasped and shrank back when they saw a brown, furry paw through the crack under the door! &ldquo;No, no,&rdquo; they cried, trembling with wide eyes, &ldquo;you&rsquo;re not our mother! Our mother has white paws!&rdquo; Oh, that&rsquo;s right, thought the wolf. He went to his den and came back with a pot of flour. He dipped a paw in it and then said in a high voice, &ldquo;Dear little goats, open the door! It&rsquo;s your mother.&rdquo; The little goats all gathered by the door and called, &ldquo;Then show us your paw!&rdquo;</p>
+		<p><br></p>
+		<p>When they saw the white paw, they opened the door. And they should not have done that&hellip; The wolf sprang inside. The little goats screamed and scattered in every direction. One hid under the table, the second behind the cupboard, the third under the bed, the fourth in the laundry basket, the fifth behind the coat rack, the sixth behind a door, and the seventh in the grandfather clock&hellip; The wolf found them all and gobbled them up right away&mdash;all but one... The only one he missed was the seventh little kid hiding in the clock.</p>
+		<p>Not long after, Mother Goat came back. From a distance, she saw that the door was wide open, and when she found the flour pot near the door and couldn&rsquo;t see her kids anywhere, she began to wail in despair. &ldquo;My little ones, my little ones,&rdquo; she cried, &ldquo;where are you?&rdquo;</p>
+		<p>The seventh little goat crept out of the clock and told her what had happened. &ldquo;One thing is certain,&rdquo; said Mother Goat, &ldquo;if he ate six of my kids, he must have a very full belly now, and with such a big belly, he won&rsquo;t get far.&rdquo; She took a pair of scissors and a sewing kit and went outside. Flour was scattered everywhere, so she could easily see where the wolf had gone. And sure enough, there he was, sleeping under a tree not too far away.</p>
+		<p>&ldquo;Look at that big belly of his,&rdquo; Mother Goat said to herself, &ldquo;that&rsquo;s where my darlings are.&rdquo; She tiptoed closer and, very quickly, snipped open his belly. The little goats sprang out. Mother Goat filled the wolf&rsquo;s belly with big stones and sewed it up again nice and tight. Then, they all hid behind the trees.</p>
+		<p>After a long while, the wolf woke up. I feel so strange in my belly, he thought, and I&rsquo;m so thirsty! He walked to a brook, which was very hard to do with all those stones in his belly, leaned over to drink, fell into the water, and drowned. Mother Goat and her seven little kids jumped up and down with joy&mdash;they were so happy that the wicked wolf was gone. Relieved, they all went home. They took the flour pot with them and made delicious pancakes from it.</p>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseThree">
+        Roodkapje
+      </button>
+    </h2>
+    <div id="collapseFive" class="accordion-collapse collapse  ms-5 me-5" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+		<p><br></p>
+		<p>Once upon a time&mdash;long, long ago&mdash;there was a girl named Little Red Riding Hood. That wasn&rsquo;t her real name, but everyone called her that because she always wore a red hood on her head.</p>
+		<p>One day, her mother said, &ldquo;Little Red Riding Hood, you need to go visit Grandma. She&rsquo;s sick, and I&rsquo;ve packed a basket with bread rolls, cookies, and a nice bottle of wine for her.&rdquo;Grandma lived in a small cottage in the middle of the forest near the big oak tree. It was quite far, but Little Red Riding Hood knew the way very well. &ldquo;Remember,&rdquo; said her mother, &ldquo;walk briskly and don&rsquo;t stray from the path.&rdquo; Little Red Riding Hood promised and set off through the forest, walking at a steady pace.</p>
+		<p>Suddenly, a big wolf poked his head out from between the trees. Little Red Riding Hood greeted him politely but kept walking briskly. &ldquo;Young lady, young lady,&rdquo; said the wolf, &ldquo;why the rush? Where are you going with that basket?&rdquo;&ldquo;To Grandma&rsquo;s,&rdquo; replied Little Red Riding Hood. &ldquo;She&rsquo;s sick.&rdquo;</p>
+		<p>&ldquo;Oh? And where does Grandma live?&rdquo; asked the wolf again.&ldquo;Near the big oak tree,&rdquo; said Little Red Riding Hood, &ldquo;but if you don&rsquo;t mind, I have to go now. Goodbye, Mr. Wolf!&rdquo;</p>
+		<p>The wolf walked alongside her and said, &ldquo;Oh, come on, don&rsquo;t you see what a beautiful day it is today? And look at all those lovely flowers. I&rsquo;m sure Grandma would be very happy if you brought her a bunch of flowers along with that basket of treats.&rdquo;</p>
+		<p>What Little Red Riding Hood didn&rsquo;t know was that the wolf was very hungry, and she looked like a tasty snack to him. But the wolf was greedy. Now that he&rsquo;d heard about Grandma, he wanted both Little Red Riding Hood *and* her grandmother as snacks.&ldquo;I&rsquo;m not supposed to leave the path,&rdquo; said Little Red Riding Hood.&ldquo;Oh, come now!&rdquo; said the wolf. &ldquo;It&rsquo;s for your Grandma, isn&rsquo;t it?&rdquo; And with that, he disappeared among the trees.Little Red Riding Hood paused. The wolf was right; those flowers were beautiful. She forgot her mother&rsquo;s advice and&hellip; wandered off the path.</p>
+		<p>Meanwhile, the wolf dashed through the forest toward the big oak tree. He arrived at Grandma&rsquo;s cottage and stopped outside. &ldquo;Grandma,&rdquo; he called, &ldquo;it&rsquo;s Little Red Riding Hood. Will you open the door for me?&rdquo;&ldquo;I can&rsquo;t, dear,&rdquo; Grandma called back. &ldquo;I&rsquo;m in bed. Just pull the string, and the door will open by itself.&rdquo;</p>
+		<p>The wolf pulled the string, pushed the door open, leapt onto Grandma&rsquo;s bed, and swallowed her in one big gulp. Then he grabbed a nightgown from the closet, put on Grandma&rsquo;s sleeping cap, perched her glasses on his nose, and got under the covers. Now he looked just like Grandma. Meanwhile, Little Red Riding Hood was already on her way again, now carrying a big bunch of flowers.When she reached Grandma&rsquo;s cottage, she noticed something odd: the door was open. She went inside and walked straight to the bedroom.</p>
+		<p>She stared at her Grandma in surprise; something looked a little strange about her.</p>
+		<p>&ldquo;But Grandma, what big ears you have!&rdquo; she cried, astonished.The wolf answered in a high-pitched voice, &ldquo;All the better to hear you with, my dear.&rdquo;&ldquo;But Grandma,&rdquo; said Little Red Riding Hood again, &ldquo;what a big nose you have!&rdquo;&ldquo;All the better to smell you with, my child,&rdquo; replied the wolf. &ldquo;But Grandma, what big eyes you have!&rdquo; said Little Red Riding Hood, even more surprised. &ldquo;All the better to see you with, my dear,&rdquo; answered the wolf.</p>
+		<p>&ldquo;But Grandma, what a big mouth you have!&rdquo; Little Red Riding Hood was amazed. &ldquo;All the better to eat you with!&rdquo; cried the wolf, who by now was ravenously hungry. He sprang up and gobbled Little Red Riding Hood in one big bite, just as he had done with Grandma. Satisfied, he lay back down in bed, immediately fell asleep (that&rsquo;s what happens when you eat so much!), and started snoring very loudly.</p>
+		<p>Now, Grandma had a good friend who was a hunter. That afternoon, he happened to walk past the cottage and heard the wolf&rsquo;s snoring. &ldquo;That&rsquo;s not Grandma snoring like that,&rdquo; the hunter said to himself. &ldquo;Something&rsquo;s not right. And the door is open; that&rsquo;s not right, either.&rdquo; He went inside, saw a basket of treats with a bunch of flowers beside it, noticed a broken pair of glasses on the floor, and then saw the wolf in the bed. The hunter understood at once that the wolf had eaten Grandma. And that basket&mdash;I know that basket, thought the hunter. That&rsquo;s Little Red Riding Hood&rsquo;s. Without another thought, he pulled out his hunting knife and cut open the wolf&rsquo;s belly. Out stepped Grandma and Little Red Riding Hood. &ldquo;Oh, whew, it was so stuffy in there,&rdquo; they sighed in relief. &ldquo;Shhh!&rdquo; whispered the hunter. &ldquo;We don&rsquo;t want to wake the wolf.&rdquo;</p>
+		<p>&nbsp;He went outside, gathered three large stones, stuffed them into the wolf&rsquo;s belly, and sewed it back up. Then all three of them hid in the large wardrobe. Through a crack, they kept an eye on the wolf.</p>
+		<p>After a while, the wolf woke up. &ldquo;Oof,&rdquo; he groaned, rubbing his belly, &ldquo;I feel a little queasy.&rdquo; (No wonder, with those big stones in his belly, but he didn&rsquo;t know that!) &ldquo;And I&rsquo;m so thirsty!&rdquo; The wolf dragged himself outside to the stream. He bent down to drink, but because of the heavy stones in his belly, he fell headfirst into the water and drowned.</p>
+		<p>&ldquo;Hooray!&rdquo; shouted Little Red Riding Hood, the hunter, and Grandma, who had seen it all happen.Grandma quickly went back under the covers because she still wasn&rsquo;t feeling well. The hunter and Little Red Riding Hood each grabbed a chair, and the three of them enjoyed the bread rolls, cookies, and wine that Little Red Riding Hood&rsquo;s mother had packed.</p>
+		<p>&ldquo;Mmmmmm!&rdquo; said Grandma. &ldquo;Your mother sure knows how to bake delicious cookies, Little Red Riding Hood!&rdquo;</p>
+		<p>The hunter and Little Red Riding Hood wanted to say something, too, but their mouths were full. And you know you&rsquo;re not supposed to talk with your mouth full&mdash;everyone knows that.</p>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseThree">
+        De versleten schoentjes
+      </button>
+    </h2>
+    <div id="collapseSix" class="accordion-collapse collapse  ms-5 me-5" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+		<p>ONCE upon a time, there was a king who had eleven daughters. Was he happy with them? Yes and no. Yes, because he was rather proud of all those beautiful girls. And no, because they gave him a headache. He was faced with a mystery. For weeks on end, he had to buy new shoes for his eleven daughters every single day. Eleven pairs of shoes each day, that&rsquo;s seventy-seven pairs of shoes in one week. And why? Because the shoes he bought the previous day were already worn out the next: the soles were falling off, the heels were worn down unevenly, the straps were torn, and so on. <br />How could this be? How could those shoes be completely worn out and destroyed in just one night? And it was even stranger because the king locked his daughters in their bedroom every evening precisely at eight o'clock. They couldn&rsquo;t go anywhere! <br /> <br />When he asked them about it, the eleven daughters would lower their eyes and stay silent in every language. The king was completely driven mad by this. And all those shoes also cost him a fortune. At his wit's end, the king placed an advertisement in the newspaper.</p>
+		<p>Whoever could solve the mystery of the worn-out shoes would be allowed to marry one of the princesses. You could spend three nights in the girls' bedroom, but if you hadn&rsquo;t solved the mystery by then, your head would be chopped off. <br /> <br />Weeks went by. Many men had tried to solve the mystery, but each one of them fell asleep at some point and could not explain how those shoes became worn out. One soldier, who was no longer young and had been injured in the war, wanted to give it a try. But first, he went to a wise old woman for advice. The woman gave him a cloak that would make him invisible when he put it on. And she also gave him some wise advice: &ldquo;Above all, be careful not to drink anything!&rdquo; The soldier didn&rsquo;t entirely understand, but he decided to follow her advice anyway. <br /> <br />The next day, he knocked on the palace gate. The king let him in and said he hoped that the mystery would finally be solved. When the clock struck eight, the princesses went to bed. The soldier received the key to the bedroom and locked himself in with the princesses. He put the key in his pocket. <br /> <br />Meanwhile, the girls were getting ready for the night. The youngest offered <br />the soldier a glass of red wine. &ldquo;You were injured, weren't you?&rdquo; she said kindly. &ldquo;You must <br />need some strengthening. A good glass of wine will do you good!&rdquo;</p>
+		<p>The soldier was very thirsty and was just about to take a sip when he remembered <br />what the wise woman had said: &ldquo;Above all, be careful not to drink anything!&rdquo; So he secretly poured the <br />glass into a vase. Moments later, the youngest princess showed him to a nice soft bed. The soldier lay down and <br />closed his eyes. The magic cloak was rolled up beside him. <br /> <br />The light went out, and for a long time, nothing happened. The soldier decided to pretend to sleep and began to snore. And sure enough, the light came on again. He heard whispering and rustling all around. &ldquo;That old man would have fallen asleep even without our sleeping potion,&rdquo; joked one of the princesses. The soldier carefully opened one eye and saw that the girls were all taking ball gowns out of their wardrobes. They dressed up, made themselves look beautiful, and pinned pearls, ribbons, and flowers in their hair, and the jingling of bracelets and necklaces filled the air.</p>
+		<p>When they were ready, the oldest princess tapped her bed, causing it to sink into the floor. The princesses one by one disappeared into the hole that had appeared. The soldier put on his magic cloak and followed them. They went down a staircase into a dark underground passage. The soldier, now invisible, couldn&rsquo;t see his own hand in front of his face, but he could hear the swishing of gowns and the excited whispering and giggling of the girls. One of them said, &ldquo;I don&rsquo;t know, but I have the feeling we&rsquo;re being followed.&rdquo; &ldquo;Oh, nonsense,&rdquo; said another, &ldquo;you&rsquo;re just imagining it.&rdquo; The soldier could barely keep up with the girls. After a while, the passage opened into a magnificent orchard. The trees had silver leaves. In a second orchard, there were trees with golden leaves, and in a third, the trees had diamond leaves! In the bright moonlight, the princesses ran further towards a large lake. Eleven little boats waited there for them, each with a prince inside. The princesses got in. The soldier climbed into the youngest princess&rsquo;s boat. &ldquo;I don&rsquo;t understand it,&rdquo; said the prince, &ldquo;today it&rsquo;s much harder to row than usual. I think I ate too much.&rdquo; On the other side, they climbed ashore and entered a grand castle. In a magnificent ballroom, music was playing, and they began to dance, the handsome princes and the beautiful princesses. Laughing and making jokes, they glided gracefully across the dance floor, their ball gowns swirling in every direction. <br /> <br />This went on for hours without a single break. As they danced, they refilled their glasses with champagne. Exactly at four o'clock, everything suddenly came to an end. Everyone rushed back to the boats. The princesses ran through the three orchards, dashed through the underground passage, climbed the stairs, and returned to the bedroom. The soldier had run ahead of them, so when the first princess climbed into the room, he was already lying in bed, supposedly snoring.The princesses hung their ball gowns back in the wardrobes. The soldier felt someone take the key out of his pocket. Soft footsteps sounded, the door opened and closed again, and the key was returned to his pocket. <br /> <br />The next morning, all the shoes lay in a pile outside the bedroom door. All of them were broken and worn out. Completely danced to pieces! The soldier now knew the secret. But he said nothing to the king, because he wanted to experience the strange adventure one more time. The second night was the same. The princesses again put on ball gowns, even more beautiful than the previous night, and set out again. In the underground passage, the soldier accidentally stepped on the youngest princess's train. She let out a startled cry and said, &ldquo;I have the feeling we&rsquo;re not alone.&rdquo; &ldquo;Oh, nonsense,&rdquo; the others called, &ldquo;you&rsquo;re just imagining it.&rdquo; <br /> <br />Outside, clouds swept across a dark sky, but in the castle, the chandeliers were lit, and they danced as if their lives depended on it, their faces flushed from the champagne and excitement. The soldier wanted to dance, too, and he took the youngest princess's hand. The girl gave a little scream. &ldquo;There&rsquo;s someone here!&rdquo; she cried. &ldquo;Oh, nonsense,&rdquo; said the prince she was dancing with, &ldquo;you&rsquo;re just imagining it.&rdquo; When the party ended, the girls all ran back to their bedroom. <br /> <br />And the next morning, the king found yet another pile of worn-out shoes outside the bedroom door! Once again, the soldier said nothing to the king.</p>
+		<p>The third night, a strong wind was blowing. In each orchard, the soldier broke off a small branch, and each time, the youngest princess looked around in alarm. &ldquo;Do you hear that? I&rsquo;m telling you, we&rsquo;re being followed.&rdquo; &ldquo;Oh, nonsense,&rdquo; the others called, &ldquo;you&rsquo;re just imagining it.&rdquo; In the ballroom, <br />the soldier picked up a silver cup and slipped it into his pocket. Just before dawn, everyone was in bed again. And the worn-out shoes lay in a pile outside the door. <br /> <br />The next day, when the king asked him if he had solved the mystery, the soldier told him everything. The princesses were brought in, and of course, they said the soldier was lying. But then the soldier produced a silver, a gold, and a diamond branch. And also a silver cup. The princesses burst into tears because they understood that their secret had been discovered. &ldquo;Now you may choose a princess,&rdquo; said the king. The soldier chose the youngest. He thought she was the most beautiful.She wasn&rsquo;t exactly thrilled, because she thought he was far too old. But alas, if you are a princess, you can&rsquo;t just marry whomever you want. No, your father chooses for you. <br /> <br />The princesses never danced again, or at least not night after night. They had been enchanted all along, and when the secret was discovered, the spell was broken. The people of the land were glad. They had to pay less tax from then on, because now that the king didn&rsquo;t need to buy eleven new pairs of shoes every day, there was plenty of money in the royal treasury.</p>
+		<!-- Comments are visible in the HTML source only -->
+	  </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseThree">
+        Repelsteeltje
+      </button>
+    </h2>
+    <div id="collapseSeven" class="accordion-collapse collapse  ms-5 me-5" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+		<p>LONG, LONG AGO, there was once a miller who was very proud of his daughter. He thought she was the most beautiful, sweetest, and cleverest girl in the whole world. He boasted that she could do anything &ndash; whatever you could think of, she could do it.</p>
+		<p>&ldquo;Can she really do everything?&rdquo; someone once asked. &ldquo;Can she also spin gold from straw?&rdquo;</p>
+		<p>&ldquo;Of course, she can,&rdquo; said the miller without blinking an eye.</p>
+		<p>He shouldn&rsquo;t have said that, because a) it wasn&rsquo;t true, and b) that person told the king. And this king was very greedy, especially when it came to gold. So, the girl had to come to the palace immediately.</p>
+		<p>The king took her to a little room in the attic. Three bundles of straw lay on the floor, and there was a spinning wheel. &ldquo;I&rsquo;ll be back tomorrow,&rdquo; he said, &ldquo;and if you haven&rsquo;t spun this straw into gold, I&rsquo;ll have your head chopped off.&rdquo; He left the room and locked the door behind him.</p>
+		<p>The girl stayed behind in shock. She looked at the bundles of straw and burst into tears because, of course, she couldn&rsquo;t make gold from straw &ndash; who could, anyway?</p>
+		<p>---</p>
+		<p>As tears streamed down her face, she suddenly heard a tiny voice say, &ldquo;Why are you crying, girl?&rdquo; In front of her stood a very small, dwarfish man.</p>
+		<p>&ldquo;If I haven&rsquo;t spun all this straw into gold by tomorrow, I&rsquo;ll be beheaded,&rdquo; sobbed the girl.</p>
+		<p>&ldquo;I can help you,&rdquo; said the little man, &ldquo;for I can spin gold from straw. But as a reward, I want that necklace around your neck.&rdquo;</p>
+		<p>&ldquo;That&rsquo;s fine,&rdquo; said the girl. She quickly took off her necklace and gave it to him.</p>
+		<p>The little man put her to sleep, and when she awoke the next morning, she had to squint her eyes shut because the room was gleaming with gold!</p>
+		<p>---</p>
+		<p>The door opened, and the king entered. &ldquo;Well, well, girl,&rdquo; he said, rubbing his hands, &ldquo;you did well!&rdquo; But did you think he was satisfied now? No! He had six more bundles of straw brought in and said, &ldquo;I&rsquo;ll be back tomorrow, and if this straw hasn&rsquo;t turned to gold, I&rsquo;ll have your head chopped off.&rdquo; And once again, he locked the door.</p>
+		<p>The girl started crying again, and there was the dwarf again. This time, he wanted her bracelet. After he got it, he put her to sleep again and transformed the straw into gold.</p>
+		<p>---</p>
+		<p>But even with six piles of gold, the king wasn&rsquo;t satisfied. Now she was taken to a larger room, stuffed to the ceiling with straw.</p>
+		<p>&ldquo;Until tomorrow!&rdquo; he said to the girl. &ldquo;You know what happens if you don&rsquo;t spin it into gold. But if you succeed, you may marry the prince tomorrow.&rdquo; And after those words, he locked the door. The girl was desperate. What if the dwarf didn&rsquo;t come? But there he was again.</p>
+		<p>&ldquo;I have nothing left to give you,&rdquo; the girl cried. &ldquo;You already took my necklace and bracelet.&rdquo;</p>
+		<p>-----</p>
+		<p>The little man thought for a moment. &ldquo;If I understand correctly,&rdquo; he said, &ldquo;you get to marry the prince if I turn the straw into gold. Fine with me, but as a reward, I want your first child.&rdquo;</p>
+		<p>The girl was so frightened about losing her head that she didn&rsquo;t think twice and quickly said, &ldquo;Yes, yes, I promise!&rdquo;</p>
+		<p>The dwarf put her to sleep again, and the next day, all the straw was turned to gold.</p>
+		<p>-----</p>
+		<p>The miller&rsquo;s daughter married the prince, and after a while, a baby was born. The girl, now a princess, was overjoyed. But who should suddenly appear? The dwarf!</p>
+		<p>&ldquo;I&rsquo;ve come for my reward,&rdquo; he said.</p>
+		<p>The girl began to cry terribly because she loved her child deeply, but that made no impression on the little man. &ldquo;A promise is a promise,&rdquo; he said.</p>
+		<p>----</p>
+		<p>The girl fell to her knees and offered him all the necklaces and bracelets she had if she could only keep the baby. The little man finally took pity on her and said, &ldquo;Alright, I&rsquo;ll give you a chance. If you can guess my name within three days, you can keep your child.&rdquo; And just as suddenly as he had come, he was gone again.</p>
+		<p>The princess immediately asked all the footmen, maidservants, and ladies-in-waiting in the palace for their names and wrote them all down. The next day, when the dwarf came to the palace, the princess was ready with a long list of names. &ldquo;Well?&rdquo; said the dwarf. &ldquo;What&rsquo;s my name?&rdquo;</p>
+		<p>The princess started at the top of the list. &ldquo;Is your name Frederick?&rdquo;</p>
+		<p>&ldquo;No,&rdquo; said the little man.</p>
+		<p>&ldquo;Is it Leopold?&rdquo; asked the princess.</p>
+		<p>&ldquo;No,&rdquo; he replied.</p>
+		<p>And so it went on. When she had read all the names, she still hadn&rsquo;t guessed the dwarf&rsquo;s name.</p>
+		<p>&ldquo;Remember,&rdquo; said the dwarf, &ldquo;I&rsquo;ll be back tomorrow!&rdquo; And off he went.</p>
+		<p>----</p>
+		<p>Now all the palace servants had to go out and write down every name of everyone they met in the kingdom.</p>
+		<p>The next day, the dwarf appeared again and said, &ldquo;Well? What&rsquo;s my name?&rdquo;</p>
+		<p>The princess now had twenty times as many names as the first time.</p>
+		<p>&ldquo;Is it Alfonso? Is it Arid? Is it Jojo? Is it Samson?&rdquo;</p>
+		<p>Each time, the little man replied, &ldquo;No!&rdquo;</p>
+		<p>And again, the princess hadn&rsquo;t guessed the name.</p>
+		<p>&ldquo;Tomorrow is your last chance,&rdquo; warned the dwarf.</p>
+		<p>----</p>
+		<p>The princess was at her wits&rsquo; end, for where could she possibly find more names? She wandered sadly through the park around the palace. When it grew dark and she was about to head home, she suddenly heard someone singing. Where was that coming from? In the distance, through the trees, she saw a fire burning with something small hopping around it. As she crept closer, she saw it was the dwarf! Silently, she hid behind a thick tree. And this is what the dwarf sang:</p>
+		<p>&ldquo;Oh, I&rsquo;m so glad, <br />oh, I&rsquo;m so glad, <br />that nobody knows <br />that my name is Rumpelstiltskin!&rdquo;</p>
+		<p>You can imagine the princess slept well that night &ndash; for the first time in two days.</p>
+		<p>The next day, the little man appeared, grinning.</p>
+		<p>&ldquo;Well?&rdquo; he said. &ldquo;This is your last chance. What&rsquo;s my name?&rdquo;</p>
+		<p>The princess pretended to read from a long list of names and began: &ldquo;Are you&hellip; Dabberbeard?&rdquo;</p>
+		<p>&ldquo;No, no,&rdquo; said the little man, rubbing his hands, &ldquo;no, that&rsquo;s not it.&rdquo;</p>
+		<p>----</p>
+		<p>&ldquo;Are you perhaps&hellip; Froepeltroep?&rdquo;</p>
+		<p>&ldquo;No, no, ha-ha, no, no!&rdquo; The little man walked toward the crib.</p>
+		<p>&ldquo;Then maybe&hellip; Rumpelstiltskin?&rdquo; The little man first looked at her in astonishment, then disappointment, and then very angrily. He was so angry that he burst apart!</p>
+		<p>That was terrible for the little man, but the princess was thrilled. She took her baby from the crib and danced around the room.</p>
+		<p>-----</p>
+		<p>That afternoon, the prince, who had noticed none of the drama, came in. &ldquo;We still need to choose a name for our son,&rdquo; he said.</p>
+		<p>The girl took out a stack of paper from the drawer. &ldquo;I&rsquo;ve already collected many names. We can choose from these.&rdquo;</p>
+		<p>The prince kissed her and said, &ldquo;That&rsquo;s what I find so special about you, you always think of everything.&rdquo;</p>
+		<p>And so, the miller&rsquo;s daughter lived happily ever after with her prince and her baby.</p>
+		<!-- Comments are visible in the HTML source only -->
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseThree">
+        Vrouw Holle
+      </button>
+    </h2>
+    <div id="collapseEight" class="accordion-collapse collapse  ms-5 me-5" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+		<p>LONG, LONG AGO, there was a woman who had two daughters. One was blonde, the other had black hair, and for reasons unknown to me, she loved the blonde daughter very much and disliked the other. This was despite the fact that the blonde girl was terribly lazy and grumpy, while the dark-haired girl was sweet and kind!</p>
+		<p>---</p>
+		<p>The lazy girl was spoiled; she could lie on the couch all day. The dark-haired daughter, on the other hand, had to work from early morning until late at night. And there was plenty to do: scrubbing the floors, cleaning the windows, and polishing pots, pans, spoons, knives, and forks until they shone like the sun.</p>
+		<p>---</p>
+		<p>One day, the dark-haired girl was polishing the cutlery again. To her dismay, a little spoon slipped from her hands and fell into the well. The mother became furious. &ldquo;You&rsquo;d better get that thing back!&rdquo; she snapped. &ldquo;I don&rsquo;t care how!&rdquo; And she went back to her embroidery.</p>
+		<p>---</p>
+		<p>The poor girl, who was terrified of her mother, tightly shut her eyes and jumped into the deep well. She fell and fell, and she kept falling, and during that fall, she, believe it or not, fell asleep!</p>
+		<p>---</p>
+		<p>When she woke up, she was in a park. There were neatly raked flower beds and perfectly straight trees everywhere. Somewhere, she heard a soft voice calling: &ldquo;Get us out, get us out.&rdquo; Curious, the girl looked around. Behind her stood a little oven. Inside were rolls that cried out: &ldquo;Get us out, get us out! We&rsquo;re burning!&rdquo; Quickly, the girl took the rolls out of the oven and neatly placed them on a table.</p>
+		<p>&ldquo;Thank you, girl, you won&rsquo;t regret it,&rdquo; said the rolls gratefully.</p>
+		<p>&ldquo;Not at all,&rdquo; said the girl cheerfully and walked on.</p>
+		<p>---</p>
+		<p>A little later, she came to an apple tree that was sighing heavily. &ldquo;I&rsquo;m all bent over; I have so many ripe apples hanging on me. I wish someone would pick them.&rdquo;</p>
+		<p>Quickly, the girl picked all the apples.</p>
+		<p>&ldquo;Thank you, girl,&rdquo; said the apple tree, which now stood up straight. &ldquo;You won&rsquo;t regret it.&rdquo;</p>
+		<p>&ldquo;Not at all,&rdquo; said the girl and continued on her way.</p>
+		<p>---</p>
+		<p>She walked under an archway and came to a little house. In front of the house stood an old woman. &ldquo;I am Mother Holle,&rdquo; she said. &ldquo;I&rsquo;ve twisted my ankle, and now I can&rsquo;t clean my house. Would you come work for me? I will reward you well.&rdquo;</p>
+		<p>---</p>
+		<p>Of course, the girl wanted to help her, and she was used to working. But the old woman had a special request. She had to shake the pillows of the beds well because when she did that, it snowed on the people down on earth.</p>
+		<p>The girl immediately took the broom and, singing, cleaned the little house from top to bottom. She shook the pillows as if her life depended on it, and feathers flew around.</p>
+		<p>&ldquo;Goodness,&rdquo; said the people on earth, &ldquo;what a snowstorm we&rsquo;re having!&rdquo;</p>
+		<p>One day, the old woman said, &ldquo;It&rsquo;s time for you to go home. I&rsquo;ve seen that you&rsquo;re a nice girl who loves to help everyone, so I will reward you well. Just walk under that archway. And here&rsquo;s your little spoon back.&rdquo;</p>
+		<p>---</p>
+		<p>As the girl walked under the archway, gold rained down on her. She was completely covered in it.</p>
+		<p>---</p>
+		<p>When she got home, her mother gasped in surprise.</p>
+		<p>&ldquo;No way!&rdquo; she exclaimed. &ldquo;How did you get all that gold?&rdquo;</p>
+		<p>The girl told her about the rolls, the apple tree, and Mother Holle. The mother, who was crazy about gold, quickly went to her favorite daughter and said, &ldquo;You should jump into the well too, then you&rsquo;ll get gold as well.&rdquo;</p>
+		<p>---</p>
+		<p>The blonde girl didn&rsquo;t want to do that at all, but her mother pulled her off the couch, threw a spoon into the well, and pushed her daughter in after it. She too fell asleep during the fall, woke up in the park, and heard the rolls begging to be taken out of the oven.</p>
+		<p>---</p>
+		<p>But the girl replied sharply, &ldquo;And my fingers are burning, I have better things to do.&rdquo;</p>
+		<p>--</p>
+		<p>She walked on and snapped at the apple tree, &ldquo;I have no desire to pick all those apples. You do it yourself.&rdquo; She walked under the archway and came to Mother Holle.</p>
+		<p>---</p>
+		<p>The blonde girl was also asked by Mother Holle if she could help with the housework, especially to shake the pillows well. The girl, of course, didn&rsquo;t want to do that at all, but she thought of the gold and said yes. But even with Mother Holle, she spent the whole day on the couch and did nothing. She didn&rsquo;t sweep the floors or clean the pots. The little house became increasingly dirty, and she only half-heartedly shook the pillows.</p>
+		<p>&ldquo;What miserable snow this is!&rdquo; said the people on earth.</p>
+		<p>---</p>
+		<p>After three days, the girl had had enough and told Mother Holle that she wanted to go home. &ldquo;That&rsquo;s fine,&rdquo; said Mother Holle. &ldquo;Here&rsquo;s your spoon back, and just walk under the archway, and you will receive your reward.&rdquo;</p>
+		<p>---</p>
+		<p>But what fell on her was not gold, no, it was pitch! Thick, black, sticky, gooey, gluey strands of pitch!</p>
+		<p>---</p>
+		<p>When she got home, her mother gasped in shock. She no longer recognized her own daughter. And no matter what they did, how they tried, the pitch wouldn&rsquo;t come off!Well, you see, that&rsquo;s what happens when you&rsquo;re lazy and unkind.</p>
+		<!-- Comments are visible in the HTML source only -->
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseThree">
+        De wonderfles
+      </button>
+    </h2>
+    <div id="collapseNine" class="accordion-collapse collapse  ms-5 me-5" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+		<p>LONG, LONG AGO, there was a farmer. He was a very good man who harmed no one, but he wasn&rsquo;t very clever. No matter how hard he worked, he remained very poor. His vegetables withered in the garden, his only sheep fell ill and died, and all that he had left was a cow.</p>
+		<p>---</p>
+		<p>One day, there was no food left in the house. &ldquo;It&rsquo;s a pity,&rdquo; said his wife, &ldquo;but we must sell the cow. Then we can at least buy some food.&rdquo;</p>
+		<p>---</p>
+		<p>The next morning, the farmer took the cow to the market. On the way, on a quiet path, a man walked beside him. The farmer immediately felt very uneasy because it seemed as though the man was walking, but when you looked closely, you could see he was hovering a little above the ground.</p>
+		<p>&ldquo;This must be a wizard,&rdquo; the farmer said to himself, and he walked a bit faster, but the man stayed close to him.</p>
+		<p>After a while, the man said, &ldquo;You&rsquo;re going to the market to sell your cow because you have no food left for your wife and children.&rdquo;</p>
+		<p>---</p>
+		<p>The farmer was startled. Now he was sure: this was indeed a wizard!</p>
+		<p>&ldquo;How do you know that?&rdquo; he asked in a tiny voice.</p>
+		<p>In response, the strange man pulled a bottle out of his pocket. &ldquo;Look,&rdquo; he said, &ldquo;if you give me that cow, I will give you this bottle.&rdquo;</p>
+		<p>&ldquo;A bottle? But a cow is worth much more than a bottle!&rdquo; said the farmer, for he wasn&rsquo;t that stupid.</p>
+		<p>&ldquo;That&rsquo;s true,&rdquo; said the man, &ldquo;but this is no ordinary bottle. It&rsquo;s a magic bottle.&rdquo;</p>
+		<p>You see, thought the farmer, a magic bottle! So it is indeed a wizard!</p>
+		<p>&ldquo;Listen,&rdquo; the man continued. &ldquo;You sell that cow at the market, you get some money for it, and after a few days, the money will be gone. Then you&rsquo;ll be back where you started. With this bottle, you will have much longer enjoyment.&rdquo;</p>
+		<p>---</p>
+		<p>&ldquo;But my wife will surely be very angry if I come home with a bottle,&rdquo; said the farmer.</p>
+		<p>&ldquo;Yes, I think so too,&rdquo; said the strange man. &ldquo;But if she starts nagging, just tell her to sweep the floor, set a tablecloth on the table, and place the bottle in the middle of the table. Then you&rsquo;ll see something. Just believe me. You&rsquo;re a good man, that&rsquo;s why I&rsquo;m doing this for you.&rdquo;</p>
+		<p>---</p>
+		<p>The farmer suddenly became very scared. Imagine if he was going to cast a spell on me if I didn&rsquo;t do what he wanted, he thought. So he quickly said, &ldquo;Alright, give me the bottle.&rdquo;</p>
+		<p>And so the man got the cow, and the farmer got the bottle. And yes, of course! At home, the wife began to rage and scream. She called him all sorts of ugly names. What good was an empty bottle?</p>
+		<p>The man looked dejectedly at his shoes and softly said that she should sweep the floor, put a tablecloth on the table, and place the bottle in the middle of the table. Just as the man had told him.</p>
+		<p>The wife raised her hands to heaven. &ldquo;Man, how can you be so stupid! Sweep the floor, lay a tablecloth, and then what? We still have no food?!&rdquo;</p>
+		<p>While shouting, she swept the floor, laid a tablecloth, and placed the bottle in the middle of the table.</p>
+		<p>---</p>
+		<p>And what happened then&hellip;</p>
+		<p>They couldn&rsquo;t believe their eyes. Two little men climbed out of the bottle and set plates full of goodies on the table. And when they were done, they disappeared back into the bottle. The woman called the children, and they all ate their fill. Afterward, they waited in suspense to see if the little men would take the plates away. But that didn&rsquo;t happen.</p>
+		<p>You can imagine that they now put the bottle on the table all the time because they had never eaten so well. They ate the most delicious things five times a day and began to look healthy.</p>
+		<p>And they had another advantage: they now had cupboards full of plates. They sold those at the market and made a lot of money from them. The whole family walked around in the finest clothes, and they moved to a large farm with many cows, sheep, and horses.</p>
+		<p>---</p>
+		<p>A rich man, who also lived in the village, visited the farmer and asked how it came to be that he was now so rich. The farmer told him all about the magic bottle.</p>
+		<p>&ldquo;May I borrow it for a day?&rdquo; asked the rich man.</p>
+		<p>&ldquo;Yes, of course, with pleasure,&rdquo; said the farmer, who might not have been smart, but was very kind.</p>
+		<p>The rich man took the bottle and quickly returned to his house. He told his wife to sweep the floor and lay a tablecloth, then placed the bottle in the middle. Out came the two little men with plates full of pastries, roasted turkey legs, puddings, and fries. Now this was nothing special for the rich man and his wife. They ate pudding or cake or turkey every day. But this they got for free, without paying for it. So the rich man wanted to have the bottle.</p>
+		<p>The next day, he took a regular bottle from the cellar, which looked exactly like the magic bottle. He gave it to the farmer and said, &ldquo;Here&rsquo;s your bottle back. I believe it has lost its magic power because it didn&rsquo;t do anything at all.&rdquo; When the rich man left, the farmer swept the floor, laid a tablecloth, and placed the bottle in the middle of the table. And indeed&hellip; nothing happened.</p>
+		<p>---</p>
+		<p>&ldquo;Well,&rdquo; said the farmer, &ldquo;we had a lot of fun with it anyway.&rdquo;</p>
+		<p>---</p>
+		<p>In the next part of the story, you&rsquo;ll hear that the farmer really wasn&rsquo;t very clever.</p>
+		<p>He had become accustomed to buying everything he wanted, and now that he could no longer do that, he didn&rsquo;t know what to do. So he first sold the fine clothes, then the nice furniture, and finally the large farm. He became poorer and poorer, and after a while, they lived in a little hut and only had one cow left.</p>
+		<p>---</p>
+		<p>The farmer saw only one solution. I&rsquo;ll sell the cow at the market, he thought, and maybe I&rsquo;ll run into that wizard again on the way.</p>
+		<p>He took the same path, and&hellip; lo and behold, there he was, exactly in the same place.</p>
+		<p>The wizard pulled another bottle out from under his cloak and asked, &ldquo;Your cow for this bottle?&rdquo;</p>
+		<p>The farmer immediately said yes, and while he was already running home, the wizard called after him, &ldquo;My bottles never lose their magic!&rdquo;</p>
+		<p>At home, the farmer swept the floor, laid a tablecloth on the table, and placed the bottle in the middle.</p>
+		<p>But now, out came not two little men from the bottle, but two big guys with clubs, and they beat the farmer and his wife so badly that it was no longer pretty.</p>
+		<p>---</p>
+		<p>After a while, they disappeared back into the bottle.</p>
+		<p>The farmer and his wife lay groaning on the floor. The wife felt a bump on her forehead and moaned, &ldquo;Didn&rsquo;t you say that the wizard said his bottles never lose their magic? Well then, that rich man tricked you!&rdquo;</p>
+		<p>---</p>
+		<p>The farmer took the second bottle to the rich man, who now lived in a beautiful, palace-like house, and knocked on the door. A servant opened it. The farmer asked if he could speak to the rich man. But the rich man had him chased off the property.</p>
+		<p>&ldquo;Don&rsquo;t do it! Don&rsquo;t do it!&rdquo; cried the farmer. &ldquo;Tell your master that I have a bottle for him again.&rdquo;</p>
+		<p>The rich man heard this and immediately came to the door, patted the farmer warmly on the shoulder, and let him in. His wife swept the floor, laid a tablecloth, and the farmer placed the bottle in the middle of the table. They waited anxiously, and yes! Out came the two big men and beat the rich man and his wife black and blue.</p>
+		<p>&ldquo;Make them stop!&rdquo; cried the rich man. &ldquo;Ouch, ouch! Make them stop!&rdquo;</p>
+		<p>&ldquo;Only if I get my magic bottle back,&rdquo; said the farmer.</p>
+		<p>The rich man pointed to a cupboard. &ldquo;There, on the top shelf! Take it away, take it away! Ouch! Ouch!&rdquo;</p>
+		<p>---</p>
+		<p>The farmer could now buy all sorts of things again. But he had become wiser. He no longer bought everything indiscriminately but learned how to grow vegetables and keep sheep and cows healthy. So after a while, he no longer needed the bottle at all and was able to earn his own bread.</p>
+		<!-- Comments are visible in the HTML source only -->
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseThree">
+       Hans en Grietje
+      </button>
+    </h2>
+    <div id="collapseTen" class="accordion-collapse collapse  ms-5 me-5" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+			<p>Once upon a time, there was a woodcutter and his wife, and their two children, Hans and Grietje. They were so poor that they were always hungry. One day, the mother had had enough. &ldquo;We have no food left for the children,&rdquo; she said to her husband. &ldquo;I can't bear to see them hungry anymore. Tomorrow, you will take them to the forest and leave them there.&rdquo;</p>
+			<p>---</p>
+			<p>So, it was decided. The next morning, the father took the children into the woods. He stopped at a clearing. &ldquo;I&rsquo;m going to chop wood a bit further away,&rdquo; he said, &ldquo;and you will stay here until I come back.&rdquo; He left the last piece of dry bread he had with the children, of course.</p>
+			<p>---</p>
+			<p>The sun set, and Hans and Grietje began to feel cold. Their father still did not show up. &ldquo;He might have forgotten us,&rdquo; said Hans, &ldquo;but that&rsquo;s okay, because I know the way home.&rdquo; He took his sister by the hand.</p>
+			<p>---</p>
+			<p>But under the tall trees, it was very dark, and they got lost. They wandered further away from home all night&mdash; with grumbling stomachs, I can tell you, because one piece of dry bread for an entire day and half a night is not much.</p>
+			<p>---</p>
+			<p>Suddenly, Hans saw a house in the distance. It was a very special house. The walls were made of cookies, and the roof was made of marzipan. Grietje broke off a piece of the roof and was just about to put it in her mouth when a trembling voice came from inside the house:</p>
+			<p>**Nibble, nibble, nibble,**<br />**who's nibbling at my house?**</p>
+			<p>Startled, Grietje replied, <br />**"It's the wind, it's the wind,** <br />**that finds the house so nice."**</p>
+			<p>---</p>
+			<p>The door of the house creaked open, and an old woman stumbled out. &ldquo;Are you eating from my house?&rdquo; she asked. &ldquo;Are you so hungry, children?&rdquo; She shook her head sympathetically. &ldquo;But cookies aren't real food! Come inside, and I&rsquo;ll give you a hearty bowl of soup.&rdquo;</p>
+			<p>---</p>
+			<p>It was warm inside. They finished the soup in no time, and after all that walking, they were so tired that they nearly fell asleep over their bowls. The kind old lady tucked them into bed under a soft, woolen blanket.</p>
+			<p>The next day, before dawn, the old woman shook them awake. She was suddenly no longer kind and friendly. And she wasn&rsquo;t stumbling either; it turned out she was very strong. She dragged Hans out of bed and locked him in a cage, throwing the key up on a shelf.</p>
+			<p>---</p>
+			<p>&ldquo;And you,&rdquo; she said to Grietje, pushing her against the wall, &ldquo;you will clean this house. You will work until you drop. You didn't think you could eat from my house without consequences, did you?&rdquo;</p>
+			<p>---</p>
+			<p>The old woman was actually a wicked witch; you may have guessed that already. Grietje had to do all the housework. The only thing she didn&rsquo;t have to do was cook because the witch did that herself. And not just any cooking; she prepared the most delicious meals. The strange thing was, she never ate any of it. Grietje only got crusts of bread. No, all the treats were for Hans. That was how it went the first day and all the days after.</p>
+			<p>---</p>
+			<p>After a few weeks, the witch said one evening to Hans, &ldquo;Stick your finger through the bars!&rdquo; She felt it and mumbled, &ldquo;Not fat enough, not fat enough.&rdquo; Grietje heard that and, while the witch was sleeping, she quietly crept to Hans in his cage.</p>
+			<p>&ldquo;I believe the witch is fattening you up,&rdquo; she whispered. &ldquo;She wants you to get very fat because she plans to eat you. If she asks you to stick out your finger again, you must stick this through the bars.&rdquo; And she gave him a thin, gnawed chicken bone. Then she quickly crawled back into bed.</p>
+			<p>---</p>
+			<p>A few days later, the witch said again to Hans, &ldquo;Stick your finger out.&rdquo; Hans stuck the chicken bone through the bars. Luckily, the witch had bad eyesight, so she thought it was Hans&rsquo;s finger. She felt the bone, shook her head, and mumbled again, &ldquo;Not fat enough, not fat enough.&rdquo;</p>
+			<p>----</p>
+			<p>But after a while, the witch grew impatient. &ldquo;I don&rsquo;t understand. I cook the tastiest dishes for him, and he just won&rsquo;t get fat. And I am getting so hungry for little boy meat. You know what? I won't wait any longer; I will eat him today.</p>
+			<p>A skinny little boy can also be delicious if you prepare him well.&rdquo; She already lit the oven and looked in her cookbook to see how to roast a little boy. &ldquo;Grietje,&rdquo; she called out, &ldquo;check if the oven is hot enough.&rdquo;</p>
+			<p>---</p>
+			<p>Grietje had long understood what the witch was planning, and she said, &ldquo;I don&rsquo;t know how to do that.&rdquo;</p>
+			<p>&ldquo;You know nothing,&rdquo; grumbled the witch, &ldquo;I will show you.&rdquo; She opened the oven door, stuck her head inside, and snapped, &ldquo;This is how you do it, you silly goose!&rdquo;</p>
+			<p>---</p>
+			<p>Now you can say what you want about Grietje, but she was not a silly goose. She immediately knew what to do. She pushed the witch all the way into the oven and quickly shut the door. The witch screamed for her life, but Grietje didn&rsquo;t pay attention. She pulled a chair to the tall cupboard to grab the key from the cage and quickly freed Hans.</p>
+			<p>---</p>
+			<p>Together, they searched the house, and do you know what they found? Gold coins! Gold coins and gemstones! Drawers and cupboards, everything was full of gold and gemstones. That wicked witch was, in fact, stinking rich!</p>
+			<p>---</p>
+			<p>Hans and Grietje didn&rsquo;t think long about it. They stuffed as many of those gold coins and gemstones into their pockets as possible and ran into the woods, far away from the cookie-and-marzipan house. They didn&rsquo;t even dare to look back. They kept running, so scared that the witch would come after them. After all, you never know with witches. But eventually, they couldn&rsquo;t run anymore and collapsed, panting, onto the moss. Just when they thought they would never get home again, Hans suddenly saw where they were. &ldquo;Grietje,&rdquo; he said, &ldquo;I think this path leads to our house.&rdquo;</p>
+			<p>---</p>
+			<p>And he was right! Moments later, they knocked on the door of their house. Their father and mother were very happy to see their children again because they deeply regretted what they had done. They sold the gold and gemstones, and then they had enough money to buy bread, enough for a thousand years!</p>
+			<p>&nbsp;</p>
+			<!-- Comments are visible in the HTML source only -->
+
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseThree">
+			De gelaarsde kat
+      </button>
+    </h2>
+    <div id="collapseEleven" class="accordion-collapse collapse  ms-5 me-5" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+		<p>A LONG, LONG time ago, in a place far away, there was a miller who had three sons. &ldquo;When I die,&rdquo; he always said, &ldquo;my oldest son shall have the mill, the second my donkey, and the third my cat.&rdquo;</p>
+		<p>So when the man was dead and buried, the oldest son moved into the mill, the second son received the donkey, and the youngest son got the cat.</p>
+		<p>---</p>
+		<p>&ldquo;Well, this is something,&rdquo; said the youngest son to himself. &ldquo;My oldest brother can earn money with the mill, my second brother can earn money with the donkey, but how am I supposed to earn money with a cat?&rdquo; He sighed deeply and looked sadly ahead. The cat walked over to him on its soft paws and, to the boy's great astonishment, began to speak! &ldquo;Maybe it&rsquo;s true,&rdquo; said the cat, &ldquo;that you can&rsquo;t earn money with me, but believe it or not, I can make you rich.&rdquo; Of course, the boy didn&rsquo;t believe him.</p>
+		<p>&ldquo;First, buy me a nice pair of boots,&rdquo; said the cat.</p>
+		<p>---</p>
+		<p>What does a cat with four legs need with a pair of boots? thought the boy. But he can talk, so who knows what else he can do? With his last coins, he bought a pair of boots.</p>
+		<p>---</p>
+		<p>The cat stood up on his hind legs, put on the boots, and looked at himself in the mirror. He took a few steps to the left and a few steps to the right, nodded approvingly, put his owner&rsquo;s hat on his head, and walked out the door to carry out his plan. Because he had a plan! A plan to make his master the richest man in the land.</p>
+		<p>---</p>
+		<p>He headed towards the river, where he caught two fat carp. With them, he went to the king&rsquo;s palace. To one of the attendants, he said, &ldquo;Tell the king that these carp are a gift from the Marquis of Carabas.&rdquo;</p>
+		<p>---</p>
+		<p>The next day, the cat caught two partridges. Again he went to the king&rsquo;s palace. &ldquo;Give these to the king,&rdquo; said the cat to the attendant, &ldquo;and say that it&rsquo;s a gift from the Marquis of Carabas.&rdquo;</p>
+		<p>&ldquo;The king says he wants to speak to you himself,&rdquo; said the attendant, and he brought the cat to the king.</p>
+		<p>The king greeted the cat warmly: &ldquo;Well, well, another gift from the Marquis of Carabas. He must be a very nice man. Would you please send him my regards and thank him warmly?&rdquo;</p>
+		<p>Not long after, the cat heard that the king, along with his daughter, the princess, would take a carriage ride along the lake.</p>
+		<p>---</p>
+		<p>The cat hurried to his master. &ldquo;Get dressed quickly; we&rsquo;re going to the lake.&rdquo;</p>
+		<p>---</p>
+		<p>Once there, they hid behind some bushes. &ldquo;If you want to become rich, do exactly as I say,&rdquo; whispered the cat. The miller&rsquo;s son didn&rsquo;t understand anything, but he nodded obediently. After all, he wanted to be rich!</p>
+		<p>---</p>
+		<p>After a while, they heard the sound of hoofbeats: the king&rsquo;s carriage was approaching. &ldquo;Quick, jump into the water, now!&rdquo; whispered the cat, and he ran out onto the road, waving his paws wildly. &ldquo;Help, help!&rdquo; he shouted. &ldquo;The Marquis of Carabas is drowning, the Marquis of Carabas is drowning! Help, help!&rdquo;</p>
+		<p>The king ordered the carriage to stop and said, &ldquo;The Marquis of Carabas? Isn&rsquo;t that the nice gentleman who gave me those carp and partridges? We must help him immediately.&rdquo;</p>
+		<p>The miller&rsquo;s son was pulled from the water and given dry clothes. But that was not all. He was allowed to ride in the coach and sat next to the princess.</p>
+		<p>---</p>
+		<p>The cat did not wait for any of this and had already run ahead. When he reached the sprawling wheat fields, he asked the farmers working there, &ldquo;Whose wheat fields are these?&rdquo;</p>
+		<p>---</p>
+		<p>&ldquo;They belong to the great wizard who lives in the castle beyond the forest,&rdquo; one of the farmers replied, pointing into the distance.</p>
+		<p>The cat said, &ldquo;The king will come by soon. If he asks whose wheat fields these are, you must say, &lsquo;They belong to the Marquis of Carabas.&rsquo; If you don&rsquo;t, I&rsquo;ll bite your head off.&rdquo;</p>
+		<p>The farmers were a little afraid of a talking cat that walked upright like a person and wore boots, so they promised to do as he said. And off went the cat again.</p>
+		<p>---</p>
+		<p>Soon after, the king&rsquo;s carriage arrived at the wheat fields, and indeed, the king asked the farmers whose beautiful fields they were.</p>
+		<p>&ldquo;They belong to the Marquis of Carabas,&rdquo; they said.</p>
+		<p>&ldquo;Well, well,&rdquo; said the king, looking at the miller&rsquo;s son in surprise. &ldquo;Well, well,&rdquo; he said again, and the princess smiled kindly at him.</p>
+		<p>The miller&rsquo;s son was, of course, as surprised as the king, but he said nothing.</p>
+		<p>---</p>
+		<p>Meanwhile, the cat had arrived at the great forest and asked the ranger working there, &ldquo;Whose forest is this?&rdquo;</p>
+		<p>&ldquo;It belongs to the great wizard who lives in the castle, beyond that hill,&rdquo; replied the ranger.</p>
+		<p>The cat said, &ldquo;The king will come by soon. If he asks whose forest this is, you must say, &lsquo;It belongs to the Marquis of Carabas.&rsquo; And if you don&rsquo;t, I&rsquo;ll bite your head off.&rdquo;</p>
+		<p>The ranger was a bit afraid of a cat in boots, so he promised to say that. And the cat ran on.</p>
+		<p>---</p>
+		<p>Then the king&rsquo;s carriage arrived at the forest. The king leaned out of the window and asked the ranger whose forest it was.</p>
+		<p>&ldquo;It belongs to the Marquis of Carabas,&rdquo; said the ranger.</p>
+		<p>&ldquo;Well, well, well,&rdquo; said the king, nodding kindly at the miller&rsquo;s son. &ldquo;Well, well, well.&rdquo;</p>
+		<p>The princess smiled and moved a little closer to the boy.</p>
+		<p>---</p>
+		<p>Meanwhile, the cat continued running, and now he arrived at the wizard&rsquo;s castle. It was an enormous castle, twice as large and beautiful as the king&rsquo;s. Now, this wizard was a very nasty man. No one dared to go near his castle, for everyone could tell you that he had once turned a hundred people into worms&mdash;just like that, because he was in a bad mood. But the booted cat was not afraid at all; he simply walked right in. Clack, clack went the boots on the shiny marble floor, and the wizard, who was sitting behind a large table, looked up in surprise.</p>
+		<p>The cat made a deep bow. &ldquo;Oh, great wizard,&rdquo; he said, &ldquo;everyone says you are a very powerful sorcerer, but you know, people say so much.&rdquo;</p>
+		<p>&ldquo;So, you don&rsquo;t believe that?&rdquo; said the wizard. &ldquo;Well, just watch!&rdquo; No sooner had he said that than he vanished, and in the wizard&rsquo;s place stood a great roaring lion, which tried to crush the cat with its claws. But the cat had expected something like this and quickly ran away, into the curtains.</p>
+		<p>&ldquo;Wonderful, wonderful!&rdquo; cried the cat from above. &ldquo;You truly can work magic. But can you also turn yourself into something small? A mouse, for example?&rdquo;</p>
+		<p>At that very moment, the lion disappeared, and a little mouse scurried across the floor squeaking.</p>
+		<p>&ldquo;Now I&rsquo;ve got you,&rdquo; said the cat, and in one leap, he was down and gobbled up the mouse, fur and all.</p>
+		<p>---</p>
+		<p>The royal coach had now arrived at the castle. The king leaned out of the window to see whom he could ask whose beautiful castle this was. To his surprise, the booted cat came outside.</p>
+		<p>&ldquo;Your royal highness,&rdquo; said the cat with a deep bow, &ldquo;welcome to the castle of the Marquis of Carabas.&rdquo;</p>
+		<p>&ldquo;Well, well, well,&rdquo; said the king, looking at the miller&rsquo;s son with admiration.</p>
+		<p>&ldquo;Well, well, well,&rdquo; said the princess, extending her hand to the miller&rsquo;s son, who helped her out of the coach. Together they walked into the castle. Everyone was amazed&mdash;especially the miller&rsquo;s son! What splendor and riches: marble and gold everywhere!</p>
+		<p>---</p>
+		<p>&ldquo;Your castle is even more beautiful and larger than mine,&rdquo; said the king to the miller&rsquo;s son. &ldquo;I happen to be looking for a man for my daughter,&rdquo; he continued, &ldquo;and I think you would be very suitable for that.&rdquo;</p>
+		<p>---</p>
+		<p>The princess nodded three, four times in succession, for she thought so too.</p>
+		<p>---</p>
+		<p>Soon a wedding was celebrated, and the bride and groom moved into the magnificent castle.</p>
+		<p>And the cat? He got his own room and twenty attendants who did nothing all day but take care of him. He also received a wardrobe full of boots, in all the colors of the rainbow.</p>
+		<p>---</p>
+		<p>Everything was now rosy and bright, except that the princess could never understand why her husband spoiled that cat so much. Twenty attendants, she thought that was really excessive!</p>
+		<p>But, well, he couldn&rsquo;t explain it to her.</p>
+		<p>&nbsp;</p>
+		<!-- Comments are visible in the HTML source only -->
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseThree">
+        Accordion Item #3
+      </button>
+    </h2>
+    <div id="collapseTwelve" class="accordion-collapse collapse  ms-5 me-5" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseThree">
+        Accordion Item #3
+      </button>
+    </h2>
+    <div id="collapseSix" class="accordion-collapse collapse  ms-5 me-5" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div><div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseThree">
+        Accordion Item #3
+      </button>
+    </h2>
+    <div id="collapseSix" class="accordion-collapse collapse  ms-5 me-5" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseThree">
+        Accordion Item #3
+      </button>
+    </h2>
+    <div id="collapseSix" class="accordion-collapse collapse  ms-5 me-5" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseThree">
+        Accordion Item #3
+      </button>
+    </h2>
+    <div id="collapseSix" class="accordion-collapse collapse  ms-5 me-5" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseThree">
+        Accordion Item #3
+      </button>
+    </h2>
+    <div id="collapseSix" class="accordion-collapse collapse  ms-5 me-5" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseThree">
+        Accordion Item #3
+      </button>
+    </h2>
+    <div id="collapseSix" class="accordion-collapse collapse  ms-5 me-5" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer class="text-body-secondary py-5">
+  <div class="container">
+    <p class="float-end mb-1">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+    <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
+  </div>
+</footer>
+<script src="assets/dist/js/bootstrap.bundle.min.js"></script>
+
+    </body>
+</html>
